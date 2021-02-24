@@ -1,0 +1,12 @@
+services:
+  bind9-dns:
+    container_name: bind9-dns
+    hostname: bind9-dns
+    restart: always
+    image: localhost/bind9-dns
+    ports:
+     - "53:53/udp"
+     - "53:53/tcp"
+    volumes:
+     - '/var/named/example.com.zone:/var/named/example.com.zone:Z'
+     - '/etc/named.conf:/etc/named.conf:Z'
